@@ -1,0 +1,30 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /api/v1
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/mydb?useSSL=false&serverTimezone=America/Bogota&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+    #spring.jpa.defer-datasource-initialization=true
+  #spring.sql.init.mode=always
+  #spring.sql.init.data-locations=classpath:import2.sql
+# Security
+security:
+  jwt:
+    secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970 #debe cambiarse de vez en cuando
+    expiration: 86400000 # a day
+    refresh-token:
+      expiration: 604800000 # 7 days
