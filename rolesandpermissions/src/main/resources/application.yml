@@ -18,9 +18,12 @@ spring:
         format_sql: true
     database: mysql
     database-platform: org.hibernate.dialect.MySQLDialect
-    #spring.jpa.defer-datasource-initialization=true
-  #spring.sql.init.mode=always
-  #spring.sql.init.data-locations=classpath:import2.sql
+    defer-datasource-initialization: true #
+  sql: #
+    init: #
+      mode: always #
+      data-locations: classpath:script.sql  #
+
 # Security
 security:
   jwt:
